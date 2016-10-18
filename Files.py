@@ -37,3 +37,43 @@ def MakeDir(dir_path=None):
         #raise warning or error
         pass
     pass
+
+# def DirToDict(dir_path=None):
+
+#     directory = {}
+
+#     for dirname, dirnames, filenames in os.walk(dir_path):
+#         dn = os.path.basename(dirname)
+#         directory[dn] = []
+
+#         if dirnames:
+#             for d in dirnames:
+#                 directory[dn].append(DirToDict(dir_path=os.path.join(dir_path, d)))
+
+#             for f in filenames:
+#                 directory[dn].append(f)
+#         else:
+#             directory[dn] = filenames
+
+#         return directory
+
+
+def DirToDict(dir_path=None):
+
+    directory = {}
+
+    for dirname, dirnames, filenames in os.walk(dir_path):
+        dn = os.path.basename(dirname)
+        directory[dn] = []
+
+        if dirnames:
+            for d in dirnames:
+                directory[dn].append(DirToDict(dir_path=os.path.join(dir_path, d)))
+
+            for f in filenames:
+                directory[dn].append(f)
+        else:
+            directory[dn] = filenames
+
+        return directory
+
