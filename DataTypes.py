@@ -1,6 +1,7 @@
 from numpy import ndarray as ndarray
 from pandas.core.frame import DataFrame as dataframe
 
+scalars=[int,float,bool]
 
 def Check(obj=None,as_str=True):
 
