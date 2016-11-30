@@ -33,6 +33,7 @@ def most_weighted_node(nodes=None,metastable_states=None,msm=None,pcca=None):
         for ii in metastable_states:
             aux_list_nodes+=pcca.metastable_sets[ii].tolist()
 
-    jj=aux_stationary_probability[nodes].argmax()
+
+    jj=aux_stationary_probability[aux_list_nodes].argmax()
     jj=aux_list_nodes[jj]
     return jj
